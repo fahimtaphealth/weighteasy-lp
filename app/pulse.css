@@ -1,0 +1,381 @@
+/* ============================================================
+   Pulse Design System — Colors & Type
+   Source of truth: Figma "Pulse Design System" (Design-System page)
+   Brand: Tap Health (parent) + WeightEasy (sub-brand)
+   ============================================================ */
+
+/* ---------- Web fonts ----------
+   Pulse uses Inter (UI text), Noto Sans (display/body in mobile),
+   Google Sans (Accordion / marketing / docs surfaces — the brand display face),
+   Urbanist (WeightEasy wordmarks).
+   Inter, Noto Sans, Urbanist load from Google Fonts; Google Sans is
+   self-hosted from /fonts (uploaded by the brand).
+*/
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans:wght@400;500;600;700;800&family=Urbanist:wght@500;600;700;800&display=swap");
+
+/* Google Sans — brand-supplied. Static file family covers 400/500/600/700 + italics. */
+@font-face {
+  font-family: "Google Sans";
+  src: url("../fonts/GoogleSans-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Google Sans";
+  src: url("../fonts/GoogleSans-Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Google Sans";
+  src: url("../fonts/GoogleSans-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Google Sans";
+  src: url("../fonts/GoogleSans-MediumItalic.ttf") format("truetype");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Google Sans";
+  src: url("../fonts/GoogleSans-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Google Sans";
+  src: url("../fonts/GoogleSans-SemiBoldItalic.ttf") format("truetype");
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Google Sans";
+  src: url("../fonts/GoogleSans-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Google Sans";
+  src: url("../fonts/GoogleSans-BoldItalic.ttf") format("truetype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Google Sans Flex — variable axis font for display sizes (light → black). */
+@font-face {
+  font-family: "Google Sans Flex";
+  src: url("../fonts/GoogleSansFlex-VariableFont_GRAD_ROND_opsz_slnt_wdth_wght.ttf") format("truetype-variations"),
+       url("../fonts/GoogleSansFlex-VariableFont_GRAD_ROND_opsz_slnt_wdth_wght.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* ============================================================
+     COLOR PRIMITIVES
+     ============================================================ */
+
+  /* Brand */
+  --color-brand-blue: rgb(37, 99, 235);   /* Tap Health primary */
+  --color-brand-blue-700: rgb(30, 64, 175);
+  --color-brand-blue-500: rgb(59, 130, 246);
+  --color-brand-blue-soft: rgb(59, 99, 235);  /* radius/spec accent */
+  --color-brand-blue-bg: rgb(239, 246, 255);  /* tinted blue surface */
+  --color-brand-blue-bg-strong: rgb(219, 234, 254);
+  --color-brand-violet: rgb(124, 58, 237);    /* secondary accent */
+  --color-brand-violet-2: rgb(143, 74, 245);  /* dashed component frames */
+
+  /* Neutrals — these are the bones of every screen */
+  --color-ink-strongest: rgb(5, 9, 20);
+  --color-ink-strong: rgb(17, 24, 39);
+  --color-ink-900: rgb(24, 32, 58);   /* primary heading */
+  --color-ink-800: rgb(37, 46, 73);   /* primary text — most used */
+  --color-ink-700: rgb(61, 73, 102);  /* secondary text */
+  --color-ink-600: rgb(107, 115, 128);
+  --color-ink-500: rgb(129, 139, 160);
+  --color-ink-400: rgb(133, 140, 153);
+  --color-ink-300: rgb(190, 197, 210);
+  --color-ink-200: rgb(220, 225, 232);
+  --color-ink-150: rgb(229, 232, 237);
+  --color-ink-100: rgb(242, 245, 249);
+  --color-ink-50:  rgb(248, 250, 252);
+  --color-paper:   rgb(253, 253, 253); /* Pulse "white" — slightly off pure */
+  --color-white:   rgb(255, 255, 255);
+
+  /* Status */
+  --color-success: rgb(22, 163, 74);
+  --color-success-container: rgb(220, 252, 231);
+  --color-warning: rgb(217, 119, 6);
+  --color-warning-2: rgb(245, 158, 11);
+  --color-warning-container: rgb(254, 243, 199);
+  --color-error:   rgb(220, 38, 38);
+  --color-error-container: rgb(254, 226, 226);
+  --color-info:    rgb(37, 99, 235);
+  --color-info-container: rgb(219, 234, 254);
+
+  /* Shadow tokens (rgba) */
+  --shadow-rgba-soft: rgba(12, 12, 13, 0.05);
+  --shadow-rgba-mid:  rgba(12, 12, 13, 0.10);
+  --shadow-rgba-flat: rgba(0, 0, 0, 0.05);
+  --shadow-rgba-mid2: rgba(0, 0, 0, 0.08);
+
+  /* ============================================================
+     SEMANTIC COLOR TOKENS  (matches Figma "Semantic Colors" page)
+     ============================================================ */
+
+  /* Surface */
+  --surface-default: var(--color-paper);
+  --surface-dim: var(--color-ink-50);
+  --surface-bright: var(--color-white);
+  --surface-container-lowest: var(--color-white);
+  --surface-container-low: var(--color-ink-50);
+  --surface-container: var(--color-ink-100);
+  --surface-container-high: var(--color-ink-150);
+  --surface-container-highest: var(--color-ink-200);
+  --surface-inverse: var(--color-ink-900);
+
+  /* Primary (text on brand surfaces) */
+  --primary-default: var(--color-brand-blue);
+  --primary-on: var(--color-paper);
+  --primary-container: var(--color-brand-blue-bg);
+  --primary-on-container: var(--color-brand-blue-700);
+  --primary-hover: var(--color-brand-blue-700);
+  --primary-pressed: rgb(23, 78, 197);
+
+  /* Secondary */
+  --secondary-default: var(--color-ink-800);
+  --secondary-on: var(--color-paper);
+  --secondary-container: var(--color-ink-100);
+  --secondary-on-container: var(--color-ink-800);
+  --secondary-hover: var(--color-ink-700);
+  --secondary-pressed: var(--color-ink-900);
+
+  /* Tertiary */
+  --tertiary-default: var(--color-brand-violet);
+  --tertiary-on: var(--color-paper);
+  --tertiary-container: rgb(237, 233, 254);
+  --tertiary-on-container: rgb(91, 33, 182);
+  --tertiary-hover: rgb(109, 40, 217);
+  --tertiary-pressed: rgb(91, 33, 182);
+
+  /* Content (typography colors) */
+  --content-primary: var(--color-ink-800);     /* default body */
+  --content-secondary: var(--color-ink-700);   /* supporting */
+  --content-tertiary: var(--color-ink-500);    /* hint */
+  --content-disabled: var(--color-ink-300);
+  --content-inverse: var(--color-paper);
+  --content-link: var(--color-brand-blue);
+
+  /* Border */
+  --border-default: var(--color-ink-150);
+  --border-strong: var(--color-ink-200);
+  --border-subtle: rgb(237, 237, 242);
+  --border-brand: var(--color-brand-blue);
+  --border-focus: var(--color-brand-blue);
+  --border-disabled: var(--color-ink-200);
+
+  /* Status semantic */
+  --status-success: var(--color-success);
+  --status-success-container: var(--color-success-container);
+  --status-warning: var(--color-warning);
+  --status-warning-container: var(--color-warning-container);
+  --status-error: var(--color-error);
+  --status-error-container: var(--color-error-container);
+  --status-info: var(--color-info);
+  --status-info-container: var(--color-info-container);
+
+  /* Fixed */
+  --fixed-white: var(--color-paper);
+  --fixed-black: rgb(5, 9, 20);
+  --fixed-dim-overlay: rgba(5, 9, 20, 0.4);
+
+  /* ============================================================
+     SPACING SCALE (from Figma — 20 stops)
+     ============================================================ */
+  --space-2: 2px;
+  --space-4: 4px;
+  --space-6: 6px;
+  --space-8: 8px;
+  --space-10: 10px;
+  --space-12: 12px;
+  --space-14: 14px;
+  --space-16: 16px;
+  --space-20: 20px;
+  --space-24: 24px;
+  --space-28: 28px;
+  --space-32: 32px;
+  --space-36: 36px;
+  --space-40: 40px;
+  --space-48: 48px;
+  --space-56: 56px;
+  --space-64: 64px;
+  --space-80: 80px;
+  --space-96: 96px;
+
+  /* ============================================================
+     RADIUS
+     ============================================================ */
+  --radius-none: 0;
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 20px;
+  --radius-3xl: 24px;
+  --radius-4xl: 28px;
+  --radius-full: 9999px;
+
+  /* ============================================================
+     ELEVATION / SHADOW
+     ============================================================ */
+  --elevation-none: none;
+  --elevation-xs: 0 1px 2px 0 var(--shadow-rgba-soft);
+  --elevation-sm: 0 2px 4px -1px var(--shadow-rgba-soft), 0 1px 2px 0 var(--shadow-rgba-flat);
+  --elevation-md: 0 4px 8px -2px var(--shadow-rgba-mid), 0 2px 4px -2px var(--shadow-rgba-flat);
+  --elevation-lg: 0 8px 16px -4px var(--shadow-rgba-mid), 0 4px 8px -4px var(--shadow-rgba-mid2);
+  --elevation-xl: 0 16px 32px -8px rgba(12, 12, 13, 0.16), 0 8px 16px -8px var(--shadow-rgba-mid);
+
+  /* ============================================================
+     MOTION
+     ============================================================ */
+  --duration-fastest: 50ms;
+  --duration-fast: 100ms;
+  --duration-normal: 200ms;
+  --duration-moderate: 300ms;
+  --duration-slow: 400ms;
+  --duration-slower: 500ms;
+  --duration-slowest: 800ms;
+
+  --easing-standard: cubic-bezier(0.2, 0, 0, 1);   /* default product easing */
+  --easing-emphasized: cubic-bezier(0.3, 0, 0.1, 1);
+  --easing-decelerate: cubic-bezier(0, 0, 0.2, 1);
+  --easing-accelerate: cubic-bezier(0.4, 0, 1, 1);
+
+  /* Spring presets — for libraries like react-native-reanimated */
+  --spring-default-damping: 15;  --spring-default-stiffness: 180;
+  --spring-gentle-damping: 10;   --spring-gentle-stiffness: 120;
+  --spring-bouncy-damping: 8;    --spring-bouncy-stiffness: 200;
+
+  /* ============================================================
+     Z-INDEX STACK
+     ============================================================ */
+  --z-raised: 1;
+  --z-dropdown: 10;
+  --z-sticky: 20;
+  --z-banner: 30;
+  --z-overlay: 40;
+  --z-modal: 50;
+  --z-bottom-sheet: 60;
+  --z-fab: 70;
+  --z-toast: 80;
+  --z-tooltip: 90;
+  --z-max: 999;
+
+  /* ============================================================
+     TYPOGRAPHY — FAMILIES
+     ============================================================ */
+  --font-ui: "Inter", "Helvetica Neue", Arial, sans-serif;          /* design-system labels, web UI */
+  --font-product: "Noto Sans", "Inter", -apple-system, sans-serif;  /* mobile product text + display */
+  --font-display: "Noto Sans", "Inter", sans-serif;                 /* large headings */
+  --font-marketing: "Google Sans", "Inter", sans-serif;             /* accordions, marketing/docs */
+  --font-wordmark: "Urbanist", "Noto Sans", sans-serif;             /* WeightEasy lockup */
+
+  /* ============================================================
+     TYPE TOKENS — Display / Heading / Title / Body / Label
+     (size / line-height / weight)
+     ============================================================ */
+  /* Display */
+  --type-display-md-size: 30px;  --type-display-md-line: 38px;  --type-display-md-weight: 700;
+  --type-display-sm-size: 24px;  --type-display-sm-line: 32px;  --type-display-sm-weight: 700;
+
+  /* Heading */
+  --type-heading-lg-size: 22px;  --type-heading-lg-line: 26px;  --type-heading-lg-weight: 700;
+  --type-heading-md-size: 18px;  --type-heading-md-line: 26px;  --type-heading-md-weight: 700;
+  --type-heading-sm-size: 16px;  --type-heading-sm-line: 24px;  --type-heading-sm-weight: 700;
+
+  /* Title */
+  --type-title-lg-size: 20px;    --type-title-lg-line: 28px;    --type-title-lg-weight: 600;
+  --type-title-md-size: 16px;    --type-title-md-line: 24px;    --type-title-md-weight: 600;
+  --type-title-sm-size: 14px;    --type-title-sm-line: 20px;    --type-title-sm-weight: 600;
+
+  /* Body */
+  --type-body-lg-size: 16px;     --type-body-lg-line: 24px;     --type-body-lg-weight: 400;
+  --type-body-md-size: 14px;     --type-body-md-line: 20px;     --type-body-md-weight: 400;
+  --type-body-sm-size: 12px;     --type-body-sm-line: 17px;     --type-body-sm-weight: 400;
+
+  /* Label */
+  --type-label-lg-size: 14px;    --type-label-lg-line: 20px;    --type-label-lg-weight: 500;
+  --type-label-md-size: 12px;    --type-label-md-line: 16px;    --type-label-md-weight: 500;
+  --type-label-sm-size: 11px;    --type-label-sm-line: 14px;    --type-label-sm-weight: 500;
+}
+
+/* ============================================================
+   SEMANTIC TYPE STYLES
+   Use these on real elements; primitives above are for tooling.
+   ============================================================ */
+html, body {
+  font-family: var(--font-ui);
+  color: var(--content-primary);
+  background: var(--surface-default);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.h1, h1.pulse {
+  font-family: var(--font-ui);
+  font-size: 32px; line-height: 100%; font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--color-ink-strong);
+}
+.h2, h2.pulse {
+  font-family: var(--font-ui);
+  font-size: 24px; line-height: 100%; font-weight: 700;
+  color: var(--color-ink-strong);
+}
+.h3, h3.pulse {
+  font-family: var(--font-ui);
+  font-size: 20px; line-height: 1.2; font-weight: 700;
+  color: var(--color-ink-strong);
+}
+
+/* Display — used on big mobile screens, onboarding, hero */
+.display-md { font-family: var(--font-display); font-size: var(--type-display-md-size); line-height: var(--type-display-md-line); font-weight: 700; color: var(--color-ink-900); letter-spacing: -0.01em; }
+.display-sm { font-family: var(--font-display); font-size: var(--type-display-sm-size); line-height: var(--type-display-sm-line); font-weight: 700; color: var(--color-ink-900); letter-spacing: -0.005em; }
+
+/* Heading */
+.heading-lg { font-family: var(--font-product); font-size: var(--type-heading-lg-size); line-height: var(--type-heading-lg-line); font-weight: 700; color: var(--color-ink-900); }
+.heading-md { font-family: var(--font-product); font-size: var(--type-heading-md-size); line-height: var(--type-heading-md-line); font-weight: 700; color: var(--color-ink-900); }
+.heading-sm { font-family: var(--font-product); font-size: var(--type-heading-sm-size); line-height: var(--type-heading-sm-line); font-weight: 700; color: var(--color-ink-900); }
+
+/* Title */
+.title-lg { font-family: var(--font-product); font-size: var(--type-title-lg-size); line-height: var(--type-title-lg-line); font-weight: 600; color: var(--color-ink-800); }
+.title-md { font-family: var(--font-product); font-size: var(--type-title-md-size); line-height: var(--type-title-md-line); font-weight: 600; color: var(--color-ink-800); }
+.title-sm { font-family: var(--font-product); font-size: var(--type-title-sm-size); line-height: var(--type-title-sm-line); font-weight: 600; color: var(--color-ink-800); }
+
+/* Body */
+.body-lg { font-family: var(--font-product); font-size: var(--type-body-lg-size); line-height: var(--type-body-lg-line); font-weight: 400; color: var(--color-ink-800); }
+.body-md { font-family: var(--font-product); font-size: var(--type-body-md-size); line-height: var(--type-body-md-line); font-weight: 400; color: var(--color-ink-700); }
+.body-sm { font-family: var(--font-product); font-size: var(--type-body-sm-size); line-height: var(--type-body-sm-line); font-weight: 400; color: var(--color-ink-600); }
+
+/* Label */
+.label-lg { font-family: var(--font-product); font-size: var(--type-label-lg-size); line-height: var(--type-label-lg-line); font-weight: 500; color: var(--color-ink-800); letter-spacing: -0.004em; }
+.label-md { font-family: var(--font-product); font-size: var(--type-label-md-size); line-height: var(--type-label-md-line); font-weight: 500; color: var(--color-ink-700); }
+.label-sm { font-family: var(--font-product); font-size: var(--type-label-sm-size); line-height: var(--type-label-sm-line); font-weight: 500; color: var(--color-ink-600); text-transform: uppercase; letter-spacing: 0.04em; }
+
+/* Code / numeric (small but functional) */
+.mono {
+  font-family: ui-monospace, SFMono-Regular, "JetBrains Mono", Menlo, Consolas, monospace;
+  font-feature-settings: "tnum" 1;
+}
