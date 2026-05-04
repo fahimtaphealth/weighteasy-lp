@@ -16,7 +16,7 @@ export default function Nav() {
         display: "flex", alignItems: "center", justifyContent: "space-between",
       }}>
         <a href="#" style={{ display: "flex", alignItems: "center", color: "var(--color-ink-900)", textDecoration: "none" }}>
-          <img src="/logo.svg" alt="WeightEasy" style={{ height: 22, display: "block" }} />
+          <img src="/weighteasy-wordmark.svg" alt="WeightEasy" style={{ height: 22, display: "block" }} />
         </a>
         <div className="nav-links" style={{
           display: "flex", alignItems: "center", gap: 32,

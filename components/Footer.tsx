@@ -10,7 +10,7 @@ export default function Footer() {
         display: "flex", justifyContent: "space-between", alignItems: "center", gap: 24,
         flexWrap: "wrap",
       }}>
-        <img src="/logo.svg" alt="WeightEasy" style={{ height: 22 }} />
+        <img src="/weighteasy-wordmark.svg" alt="WeightEasy" style={{ height: 22 }} />
         <div style={{ display: "flex", gap: 28, fontFamily: "var(--font-marketing)", fontSize: 14 }}>
           {["Privacy", "Terms", "Contact"].map((l) => (
             <a key={l} href="#" style={{ color: "var(--color-ink-700)", textDecoration: "none" }}>{l}</a>
