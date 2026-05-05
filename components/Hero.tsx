@@ -5,8 +5,14 @@ import HeroPhone from "./phones/HeroPhone";
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
+const trustPills = [
+  "40+ signals tracked",
+  "12,000+ GLP-1 journeys learned from",
+  "3 things to do today, not 47",
+];
+
 export default function Hero() {
-  const headline = "Nobody tells you how hard GLP-1 actually is.";
+  const headline = "Honest GLP-1 support that actually knows you.";
   const words = headline.split(" ");
 
   return (
@@ -27,12 +33,12 @@ export default function Hero() {
       }} className="hero-grid">
         <div>
           <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease }}>
-            <Eyebrow tone="blue">Honest GLP-1 Support</Eyebrow>
+            <Eyebrow tone="blue">Honest GLP-1 Support · Intelligent Coaching</Eyebrow>
           </motion.div>
 
           <h1 style={{
             fontFamily: "var(--font-marketing)",
-            fontSize: "clamp(44px, 6.4vw, 76px)",
+            fontSize: "clamp(40px, 5.8vw, 68px)",
             fontWeight: 700, lineHeight: 1.0,
             letterSpacing: "-0.03em",
             color: "var(--color-ink-900)",
@@ -43,7 +49,7 @@ export default function Hero() {
                 key={i}
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.15 + i * 0.06, duration: 0.7, ease }}
+                transition={{ delay: 0.15 + i * 0.05, duration: 0.7, ease }}
                 style={{ display: "inline-block", marginRight: "0.28em" }}
               >{w}</motion.span>
             ))}
@@ -55,28 +61,50 @@ export default function Hero() {
             style={{
               fontFamily: "var(--font-marketing)",
               fontSize: 19, lineHeight: 1.55, color: "var(--color-ink-700)",
-              maxWidth: 560, margin: "24px 0 0", textWrap: "pretty",
+              maxWidth: 580, margin: "24px 0 0", textWrap: "pretty",
             }}>
-            The nausea. The plateaus. The food noise that suddenly goes quiet. WeightEasy is built by people who&apos;ve been through it — and we&apos;ll be honest with you every step of the way.
+            WeightEasy learns your dose, your symptoms, your sleep, your patterns — and coaches you through the parts nobody warned you about. Not a tracker. A coach that pays attention.
           </motion.p>
 
           <motion.div
             initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.95, duration: 0.6, ease }}
             style={{ display: "flex", gap: 12, marginTop: 32, flexWrap: "wrap" }}>
-            <PrimaryBtn href="#download">Get the Honest Guide</PrimaryBtn>
-            <GhostBtn href="#truths">See what&apos;s actually coming →</GhostBtn>
+            <PrimaryBtn href="#download">Get the App</PrimaryBtn>
+            <GhostBtn href="#coach-difference">See how the coach works →</GhostBtn>
           </motion.div>
 
           <motion.div
             initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-            transition={{ delay: 1.2, duration: 0.6 }}
+            transition={{ delay: 1.15, duration: 0.6 }}
             style={{
-              marginTop: 32, display: "flex", alignItems: "center", gap: 14,
+              marginTop: 20,
               fontFamily: "var(--font-marketing)", fontSize: 14, color: "var(--color-ink-700)",
+              opacity: 0.85,
             }}>
-            <span style={{ width: 8, height: 8, borderRadius: 999, background: "var(--color-success)" }} />
-            No hype. No miracle promises. Just real support.
+            No hype. No miracle promises. Just a coach that learns you in 6 questions.
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.3, duration: 0.6 }}
+            style={{
+              marginTop: 28, display: "flex", alignItems: "center", gap: 10,
+              flexWrap: "wrap",
+            }}>
+            {trustPills.map((p) => (
+              <span key={p} style={{
+                display: "inline-flex", alignItems: "center", gap: 8,
+                padding: "8px 14px", borderRadius: 999,
+                background: "rgba(255,255,255,0.6)",
+                border: "0.5px solid var(--border-default)",
+                fontFamily: "var(--font-marketing)", fontSize: 13, fontWeight: 600,
+                color: "var(--color-ink-800)", letterSpacing: "-0.005em",
+              }}>
+                <span style={{ width: 6, height: 6, borderRadius: 999, background: "var(--color-brand-blue)" }} />
+                {p}
+              </span>
+            ))}
           </motion.div>
         </div>
 

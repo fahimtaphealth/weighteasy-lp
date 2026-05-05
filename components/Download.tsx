@@ -16,19 +16,19 @@ export default function Download() {
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.8, ease }}
         style={{ maxWidth: 760, margin: "0 auto", textAlign: "center" }}>
-        <Eyebrow>Free, forever</Eyebrow>
+        <Eyebrow>Start today</Eyebrow>
         <h2 style={{
           fontFamily: "var(--font-marketing)",
           fontSize: "clamp(40px, 5.6vw, 64px)", fontWeight: 700, lineHeight: 1.05,
           letterSpacing: "-0.025em", color: "var(--color-ink-900)", margin: 0, textWrap: "balance",
         }}>
-          You deserve honest support.
+          Your GLP-1 coach is waiting.
         </h2>
         <p style={{
           fontFamily: "var(--font-marketing)", fontSize: 19, lineHeight: 1.55,
-          color: "var(--color-ink-700)", marginTop: 20,
+          color: "var(--color-ink-700)", marginTop: 20, textWrap: "pretty",
         }}>
-          Download WeightEasy. It&apos;s free.
+          Six questions to start. By next week, it&apos;ll know you better than any app you&apos;ve ever used. Free to try. No account needed.
         </p>
 
         <div style={{ display: "flex", justifyContent: "center", gap: 12, marginTop: 32, flexWrap: "wrap" }}>
@@ -57,6 +57,17 @@ export default function Download() {
             </motion.a>
           ))}
         </div>
+
+        <motion.p
+          initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ delay: 0.6, duration: 0.6 }}
+          style={{
+            fontFamily: "var(--font-marketing)", fontSize: 13.5, lineHeight: 1.5,
+            color: "var(--color-ink-700)", marginTop: 24, opacity: 0.85,
+          }}>
+          Built by people who&apos;ve been through it. Trained on 12,000+ real GLP-1 journeys.
+        </motion.p>
       </motion.div>
     </section>
   );
