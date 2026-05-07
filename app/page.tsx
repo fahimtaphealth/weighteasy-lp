@@ -8,6 +8,8 @@ import Stats from "@/components/Stats";
 import CoachInAction from "@/components/CoachInAction";
 import TrackerVsCoach from "@/components/TrackerVsCoach";
 import Stories from "@/components/Stories";
+import Pricing from "@/components/Pricing";
+import FAQ from "@/components/FAQ";
 import Download from "@/components/Download";
 import Footer from "@/components/Footer";
 
@@ -24,6 +26,8 @@ export default function Page() {
       <CoachInAction />
       <TrackerVsCoach />
       <Stories />
+      <Pricing />
+      <FAQ />
       <Download />
       <Footer />
     </main>

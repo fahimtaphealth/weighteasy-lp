@@ -33,7 +33,7 @@ export default function TrackerVsCoach() {
           style={{ maxWidth: 760 }}
         >
           <Eyebrow>Why WeightEasy</Eyebrow>
-          <SectionTitle>You don&apos;t need another chart. You need someone paying attention.</SectionTitle>
+          <SectionTitle>You don&apos;t need another tracker. You need someone in your corner.</SectionTitle>
         </motion.div>
 
         <motion.div
@@ -145,7 +145,7 @@ export default function TrackerVsCoach() {
             color: "var(--color-ink-700)",
           }}
         >
-          Trackers ask you questions. WeightEasy answers them.
+          Trackers ask you questions. We sit with you and answer them.
         </motion.p>
       </div>
     </section>

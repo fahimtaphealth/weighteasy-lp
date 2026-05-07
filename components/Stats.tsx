@@ -4,12 +4,12 @@ import { motion } from "framer-motion";
 const ease = [0.16, 1, 0.3, 1] as const;
 
 const stats = [
-  { value: "40+", label: "signals tracked daily" },
-  { value: "±24h", label: "nausea-peak prediction by week 2" },
-  { value: "81%", label: "predicted plateaus break in 14 days" },
-  { value: "3", label: "things on your list today. Never more." },
-  { value: "41s", label: "average daily check-in" },
-  { value: "12k+", label: "GLP-1 journeys learned from" },
+  { value: "40+", label: "small signals we quietly watch" },
+  { value: "±24h", label: "we'll spot your nausea peak by week 2" },
+  { value: "81%", label: "of plateaus we flag break inside 14 days" },
+  { value: "3", label: "things to do today. Never a long list." },
+  { value: "41s", label: "average daily check-in. That's it." },
+  { value: "12k+", label: "people on GLP-1 we've learned from" },
 ];
 
 export default function Stats() {

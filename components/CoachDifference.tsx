@@ -7,38 +7,38 @@ const ease = [0.16, 1, 0.3, 1] as const;
 const cards = [
   {
     n: "01",
-    title: "Learns your nausea pattern",
-    body: "After 3 shots, WeightEasy knows exactly when your nausea hits.",
+    title: "Learns when your nausea hits",
+    body: "By the third shot, it has your pattern. So you can plan around it instead of being surprised by it.",
     quote: "Your last 3 shots: nausea peaked at hour 13, 15, 14. Block 12–4pm Wednesday. Bone broth ready by 11.",
   },
   {
     n: "02",
-    title: "Reads your hunger curve",
-    body: "By day 10, it knows your real hunger windows on this dose — and protects them.",
+    title: "Catches your real hunger windows",
+    body: "By day 10 it knows when you actually want food on this dose — and quietly protects that window.",
     quote: "You hit protein when lunch lands by 12:40. After 1:15, you skip it 70% of the time. Eat at noon today.",
   },
   {
     n: "03",
-    title: "Predicts plateaus before the scale does",
-    body: "Cross-references your dose week, sleep, and 247 peers on the same protocol.",
+    title: "Sees a plateau coming before the scale does",
+    body: "Reads your dose week, sleep, and people who've walked this same path. So you don't panic on day 6.",
     quote: "Plateau likely Day 41–48. Don't change anything. We'll tell you the day it breaks.",
   },
   {
     n: "04",
-    title: "Coaches every dose bump",
-    body: "Remembers how your body handled the last titration and adjusts the prep.",
+    title: "Helps you handle the next dose bump",
+    body: "Remembers how the last titration went, and gets you ready a couple of days early so it lands softer.",
     quote: "Last bump: 5 rough days. This time start electrolytes 48hrs early — should cut it to 3.",
   },
   {
     n: "05",
-    title: "Protects your muscle in real time",
-    body: "Reads protein vs. lean-mass risk daily — not weekly.",
+    title: "Watches your muscle, not just the scale",
+    body: "Looks at protein and lean-mass risk daily — because nobody told you GLP-1 weight loss can hit muscle hard.",
     quote: "Protein hit 2 of 7 days. At this rate, ~38% of next month's loss is muscle. Add 25g at breakfast.",
   },
   {
     n: "06",
-    title: "Knows your “quit moments”",
-    body: "Learns the hours you've considered stopping, and shows up before the thought does.",
+    title: "Shows up on the hard nights",
+    body: "Learns when the doubts hit — Sunday night, the day after a slip — and gets there before the thought does.",
     quote: "It's 9pm Sunday. The last 2 weeks were hard. Here's what changes by Friday.",
   },
 ];
@@ -60,11 +60,11 @@ export default function CoachDifference() {
         transition={{ duration: 0.7, ease }}
         style={{ maxWidth: 760 }}
       >
-        <Eyebrow>The difference</Eyebrow>
-        <SectionTitle>Trackers ask you questions. WeightEasy answers them.</SectionTitle>
+        <Eyebrow>What it actually does</Eyebrow>
+        <SectionTitle>Most apps hand you a chart. We sit with you through it.</SectionTitle>
         <SectionLede>
-          Most GLP-1 apps hand you a chart and wish you luck. WeightEasy reads your patterns,
-          predicts what&apos;s coming, and tells you the one thing to do about it today.
+          The hard parts of GLP-1 — the nausea windows, the plateaus, the dose bumps — aren&apos;t random.
+          WeightEasy learns yours, and quietly tells you the one thing to do today.
         </SectionLede>
       </motion.div>
 

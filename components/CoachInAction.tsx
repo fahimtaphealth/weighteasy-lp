@@ -49,10 +49,11 @@ export default function CoachInAction() {
         transition={{ duration: 0.7, ease }}
         style={{ maxWidth: 760 }}
       >
-        <Eyebrow>Examples</Eyebrow>
-        <SectionTitle>Three messages most apps would never send.</SectionTitle>
+        <Eyebrow>What you&apos;ll actually hear from it</Eyebrow>
+        <SectionTitle>Three messages no other app would think to send.</SectionTitle>
         <SectionLede>
-          This is what coaching actually looks like. Specific, in-time, and based on your data.
+          Specific. In-time. Based on what your body has shown us this week — not a generic tip from a
+          help article.
         </SectionLede>
       </motion.div>
 

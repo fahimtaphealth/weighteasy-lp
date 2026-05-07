@@ -6,13 +6,13 @@ import HeroPhone from "./phones/HeroPhone";
 const ease = [0.16, 1, 0.3, 1] as const;
 
 const trustPills = [
-  "40+ signals tracked",
-  "12,000+ GLP-1 journeys learned from",
-  "3 things to do today, not 47",
+  "Built by people on GLP-1",
+  "Used by 12,000+ on the journey",
+  "Just 3 things to do today",
 ];
 
 export default function Hero() {
-  const headline = "Honest GLP-1 support that actually knows you.";
+  const headline = "GLP-1 is hard. You shouldn't do it alone.";
   const words = headline.split(" ");
 
   return (
@@ -33,7 +33,7 @@ export default function Hero() {
       }} className="hero-grid">
         <div>
           <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease }}>
-            <Eyebrow tone="blue">Honest GLP-1 Support · Intelligent Coaching</Eyebrow>
+            <Eyebrow tone="blue">A coach who&apos;s been there</Eyebrow>
           </motion.div>
 
           <h1 style={{
@@ -63,14 +63,14 @@ export default function Hero() {
               fontSize: 19, lineHeight: 1.55, color: "var(--color-ink-700)",
               maxWidth: 580, margin: "24px 0 0", textWrap: "pretty",
             }}>
-            WeightEasy learns your dose, your symptoms, your sleep, your patterns — and coaches you through the parts nobody warned you about. Not a tracker. A coach that pays attention.
+            We get the nausea, the plateaus, the food noise that suddenly goes quiet. WeightEasy is a coach that listens to your patterns and tells you the one thing to do today — in plain English, on your hardest mornings.
           </motion.p>
 
           <motion.div
             initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.95, duration: 0.6, ease }}
             style={{ display: "flex", gap: 12, marginTop: 32, flexWrap: "wrap" }}>
-            <PrimaryBtn href="#download">Get the App</PrimaryBtn>
+            <PrimaryBtn href="#pricing">Get My Personalized Coach</PrimaryBtn>
             <GhostBtn href="#coach-difference">See how the coach works →</GhostBtn>
           </motion.div>
 
@@ -82,7 +82,7 @@ export default function Hero() {
               fontFamily: "var(--font-marketing)", fontSize: 14, color: "var(--color-ink-700)",
               opacity: 0.85,
             }}>
-            No hype. No miracle promises. Just a coach that learns you in 6 questions.
+            No hype. No miracle promises. Six questions to start, then it learns you.
           </motion.div>
 
           <motion.div

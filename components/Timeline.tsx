@@ -7,28 +7,28 @@ const ease = [0.16, 1, 0.3, 1] as const;
 const steps = [
   {
     milestone: "Day 1",
-    title: "Onboarded in 6 questions.",
-    body: "Knows your medication, dose, start date, sleep window, body, and goal. That's it.",
+    title: "Six questions. That's the whole onboarding.",
+    body: "Your medication, your dose, your start date, your sleep, your body, your goal. No 40-question intake.",
   },
   {
     milestone: "Week 1",
-    title: "~20 data points logged.",
-    body: "Predicts your nausea peak within ±1 day. Picks your 3 daily things.",
+    title: "It starts to recognise you.",
+    body: "Around twenty small logs in, it can guess your nausea peak within a day — and pick your 3 daily things.",
   },
   {
     milestone: "Week 4",
-    title: "Full symptom signature.",
-    body: "Suggests meals based on what you keep down — not a generic plan.",
+    title: "It knows what stays down.",
+    body: "Meals you actually finished. Meals you didn't. The suggestions get noticeably less generic.",
   },
   {
     milestone: "Week 12",
-    title: "Pattern locked.",
-    body: "Knows your plateau rhythm, titration response, and weekend drift.",
+    title: "It learns your rhythm.",
+    body: "Your plateau pattern, how titrations land on you, the weekends that always drift a little.",
   },
   {
     milestone: "Month 6",
-    title: "Maintenance mode.",
-    body: "The coach now knows you better than your last three doctors.",
+    title: "It knows you, quietly.",
+    body: "By now it understands your body better than most check-ins ever could. The good days and the rough ones.",
   },
 ];
 
@@ -49,10 +49,11 @@ export default function Timeline() {
         transition={{ duration: 0.7, ease }}
         style={{ maxWidth: 820 }}
       >
-        <Eyebrow>Intelligence timeline</Eyebrow>
-        <SectionTitle>The coach you have on day 90 is not the coach you started with.</SectionTitle>
+        <Eyebrow>How it grows with you</Eyebrow>
+        <SectionTitle>The coach on day 90 isn&apos;t the one you started with.</SectionTitle>
         <SectionLede>
-          Every log, every weigh-in, every &ldquo;rough morning&rdquo; sharpens it. WeightEasy compounds.
+          Every log, every weigh-in, every &ldquo;rough morning, didn&apos;t want to&rdquo; teaches it
+          a little more about you. It compounds quietly.
         </SectionLede>
       </motion.div>
 
