@@ -296,6 +296,8 @@ export default function BeforeAfter() {
       <style>{`
         @media (max-width: 900px) {
           .ba-grid { grid-template-columns: 1fr !important; }
+          /* On mobile, surface the "With WeightEasy" card above "Without WeightEasy" */
+          .ba-grid > :nth-child(2) { order: -1; }
         }
       `}</style>
     </section>

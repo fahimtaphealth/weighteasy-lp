@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { PrimaryBtn, GhostBtn } from "./primitives";
+import { PrimaryBtn } from "./primitives";
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -17,7 +17,7 @@ export default function Hero() {
   return (
     <section
       style={{
-        padding: "56px 32px 88px",
+        padding: "48px 24px 72px",
         position: "relative",
         background: "var(--primary-container)",
         overflow: "hidden",
@@ -38,13 +38,12 @@ export default function Hero() {
           maxWidth: 1180,
           margin: "0 auto",
           display: "grid",
-          gridTemplateColumns: "1.05fr 0.95fr",
-          gap: 56,
-          alignItems: "center",
+          gap: 48,
           position: "relative",
         }}
       >
-        <div>
+        {/* Text block (eyebrow, headline, subhead, CTA, trust line) */}
+        <div className="hero-text">
           <motion.div
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
@@ -63,7 +62,7 @@ export default function Hero() {
               letterSpacing: "0.08em",
               textTransform: "uppercase",
               color: "var(--color-brand-blue)",
-              marginBottom: 20,
+              marginBottom: 18,
             }}
           >
             <span
@@ -80,9 +79,9 @@ export default function Hero() {
           <h1
             style={{
               fontFamily: "var(--font-marketing)",
-              fontSize: "clamp(40px, 6vw, 72px)",
+              fontSize: "clamp(36px, 5.8vw, 72px)",
               fontWeight: 700,
-              lineHeight: 1.0,
+              lineHeight: 1.02,
               letterSpacing: "-0.03em",
               color: "var(--color-ink-900)",
               margin: 0,
@@ -106,28 +105,28 @@ export default function Hero() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7, duration: 0.7, ease }}
+            className="hero-subhead"
             style={{
               fontFamily: "var(--font-marketing)",
-              fontSize: 19,
-              lineHeight: 1.55,
+              fontSize: 17,
+              lineHeight: 1.5,
               color: "var(--color-ink-700)",
-              maxWidth: 540,
-              margin: "20px 0 0",
+              maxWidth: 520,
+              margin: "16px 0 0",
               textWrap: "pretty",
             }}
           >
-            Personalized coaching for your nausea, plateaus, and dose bumps —
-            built by people who&apos;ve been through it, trained on 12,000+ real journeys.
+            Personalized coaching for your nausea, plateaus, and dose bumps — trained on 12,000+ real GLP-1 journeys.
           </motion.p>
 
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.95, duration: 0.6, ease }}
-            style={{ display: "flex", gap: 12, marginTop: 28, flexWrap: "wrap" }}
+            className="hero-inline-cta"
+            style={{ display: "flex", gap: 12, marginTop: 24, flexWrap: "wrap" }}
           >
-            <PrimaryBtn href="#pricing">Get My Personalized Coach</PrimaryBtn>
-            <GhostBtn href="#how-it-works">How it works →</GhostBtn>
+            <PrimaryBtn href="#pricing">Start for $9.99/month</PrimaryBtn>
           </motion.div>
 
           <motion.div
@@ -137,67 +136,16 @@ export default function Hero() {
             style={{
               marginTop: 14,
               fontFamily: "var(--font-marketing)",
-              fontSize: 13.5,
+              fontSize: 13,
               color: "var(--color-ink-700)",
               opacity: 0.85,
             }}
           >
             7-day free trial · Cancel anytime · No hidden fees
           </motion.div>
-
-          {/* Stat rail */}
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.25, duration: 0.7, ease }}
-            className="hero-stats"
-            style={{
-              marginTop: 36,
-              display: "grid",
-              gridTemplateColumns: "repeat(3, 1fr)",
-              gap: 18,
-              maxWidth: 540,
-            }}
-          >
-            {heroStats.map((s) => (
-              <div
-                key={s.label}
-                style={{
-                  padding: "14px 16px",
-                  background: "rgba(255,255,255,0.7)",
-                  border: "0.5px solid var(--border-default)",
-                  borderRadius: 16,
-                }}
-              >
-                <div
-                  style={{
-                    fontFamily: "var(--font-marketing)",
-                    fontSize: "clamp(20px, 2.4vw, 26px)",
-                    fontWeight: 700,
-                    color: "var(--color-brand-blue)",
-                    letterSpacing: "-0.02em",
-                    lineHeight: 1.1,
-                  }}
-                >
-                  {s.value}
-                </div>
-                <div
-                  style={{
-                    fontFamily: "var(--font-marketing)",
-                    fontSize: 12,
-                    color: "var(--color-ink-700)",
-                    marginTop: 4,
-                    lineHeight: 1.3,
-                  }}
-                >
-                  {s.label}
-                </div>
-              </div>
-            ))}
-          </motion.div>
         </div>
 
-        {/* Right side — person photo with floating cards */}
+        {/* Visual block (image + floating cards) */}
         <motion.div
           initial={{ opacity: 0, scale: 0.96 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -211,12 +159,11 @@ export default function Hero() {
             width: "100%",
           }}
         >
-          {/* main person */}
           <div
             style={{
               position: "absolute",
               inset: 0,
-              borderRadius: 32,
+              borderRadius: 28,
               overflow: "hidden",
               background: "var(--color-paper)",
               boxShadow:
@@ -233,7 +180,6 @@ export default function Hero() {
                 display: "block",
               }}
             />
-            {/* soft gradient at bottom for readability */}
             <div
               style={{
                 position: "absolute",
@@ -248,16 +194,16 @@ export default function Hero() {
             <div
               style={{
                 position: "absolute",
-                left: 20,
-                bottom: 18,
+                left: 16,
+                bottom: 14,
                 color: "var(--color-paper)",
                 fontFamily: "var(--font-marketing)",
               }}
             >
-              <div style={{ fontSize: 18, fontWeight: 700, letterSpacing: "-0.01em" }}>
+              <div style={{ fontSize: 16, fontWeight: 700, letterSpacing: "-0.01em" }}>
                 Priya, 33
               </div>
-              <div style={{ fontSize: 13, opacity: 0.85, marginTop: 2 }}>
+              <div style={{ fontSize: 12, opacity: 0.85, marginTop: 2 }}>
                 On Mounjaro · Down 18 lb · Day 92
               </div>
             </div>
@@ -268,23 +214,24 @@ export default function Hero() {
             initial={{ opacity: 0, y: -16, rotate: 6 }}
             animate={{ opacity: 1, y: 0, rotate: 4 }}
             transition={{ delay: 0.7, duration: 0.8, ease }}
+            className="hero-card-top"
             style={{
               position: "absolute",
-              top: -18,
-              right: -18,
-              padding: 16,
-              borderRadius: 18,
+              top: -14,
+              right: -14,
+              padding: 14,
+              borderRadius: 16,
               background: "var(--color-paper)",
               boxShadow:
                 "0 18px 40px -16px rgba(12,12,13,0.18), 0 6px 14px -8px rgba(12,12,13,0.08)",
-              width: 180,
+              width: 160,
               border: "0.5px solid var(--border-default)",
             }}
           >
             <div
               style={{
                 fontFamily: "var(--font-marketing)",
-                fontSize: 11,
+                fontSize: 10.5,
                 fontWeight: 700,
                 color: "var(--color-brand-blue)",
                 letterSpacing: "0.08em",
@@ -296,7 +243,7 @@ export default function Hero() {
             <div
               style={{
                 fontFamily: "var(--font-marketing)",
-                fontSize: 28,
+                fontSize: 26,
                 fontWeight: 700,
                 color: "var(--color-ink-900)",
                 marginTop: 4,
@@ -308,7 +255,7 @@ export default function Hero() {
             <div
               style={{
                 fontFamily: "var(--font-marketing)",
-                fontSize: 12,
+                fontSize: 11.5,
                 color: "var(--color-ink-700)",
                 marginTop: 4,
                 lineHeight: 1.4,
@@ -323,22 +270,23 @@ export default function Hero() {
             initial={{ opacity: 0, y: 16, rotate: -4 }}
             animate={{ opacity: 1, y: 0, rotate: -3 }}
             transition={{ delay: 0.9, duration: 0.8, ease }}
+            className="hero-card-bottom"
             style={{
               position: "absolute",
-              bottom: -22,
-              left: -22,
-              padding: "14px 16px",
-              borderRadius: 18,
+              bottom: -18,
+              left: -18,
+              padding: "12px 14px",
+              borderRadius: 16,
               background: "var(--color-ink-900)",
               color: "var(--color-paper)",
-              width: 220,
+              width: 200,
               boxShadow: "0 18px 40px -16px rgba(12,12,13,0.28)",
             }}
           >
             <div
               style={{
                 fontFamily: "var(--font-marketing)",
-                fontSize: 10.5,
+                fontSize: 10,
                 fontWeight: 700,
                 opacity: 0.6,
                 letterSpacing: "0.08em",
@@ -350,7 +298,7 @@ export default function Hero() {
             <div
               style={{
                 fontFamily: "var(--font-marketing)",
-                fontSize: 13.5,
+                fontSize: 12.5,
                 fontWeight: 500,
                 lineHeight: 1.45,
                 marginTop: 6,
@@ -360,16 +308,88 @@ export default function Hero() {
             </div>
           </motion.div>
         </motion.div>
+
+        {/* Stats block (after image on mobile, left column on desktop) */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.25, duration: 0.7, ease }}
+          className="hero-stats"
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(3, 1fr)",
+            gap: 14,
+            maxWidth: 540,
+          }}
+        >
+          {heroStats.map((s) => (
+            <div
+              key={s.label}
+              style={{
+                padding: "14px 16px",
+                background: "rgba(255,255,255,0.7)",
+                border: "0.5px solid var(--border-default)",
+                borderRadius: 16,
+              }}
+            >
+              <div
+                style={{
+                  fontFamily: "var(--font-marketing)",
+                  fontSize: "clamp(20px, 2.4vw, 26px)",
+                  fontWeight: 700,
+                  color: "var(--color-brand-blue)",
+                  letterSpacing: "-0.02em",
+                  lineHeight: 1.1,
+                }}
+              >
+                {s.value}
+              </div>
+              <div
+                style={{
+                  fontFamily: "var(--font-marketing)",
+                  fontSize: 12,
+                  color: "var(--color-ink-700)",
+                  marginTop: 4,
+                  lineHeight: 1.3,
+                }}
+              >
+                {s.label}
+              </div>
+            </div>
+          ))}
+        </motion.div>
       </div>
 
       <style>{`
+        /* Desktop: 2 columns, image spans both rows */
+        .hero-grid {
+          grid-template-columns: 1.05fr 0.95fr;
+          grid-template-areas:
+            "text  image"
+            "stats image";
+          align-items: start;
+        }
+        .hero-text   { grid-area: text; }
+        .hero-visual { grid-area: image; align-self: center; }
+        .hero-stats  { grid-area: stats; }
+
         @media (max-width: 920px) {
-          .hero-grid { grid-template-columns: 1fr !important; gap: 56px !important; }
-          .hero-stats { grid-template-columns: repeat(3, 1fr) !important; }
-          .hero-visual { max-width: 360px !important; }
+          .hero-grid {
+            grid-template-columns: 1fr;
+            grid-template-areas:
+              "text"
+              "image"
+              "stats";
+            gap: 28px;
+          }
+          .hero-visual { max-width: 320px !important; }
+          /* On mobile we hide the inline CTA — the sticky bottom bar takes its place */
+          .hero-inline-cta { display: none !important; }
         }
         @media (max-width: 520px) {
           .hero-stats { grid-template-columns: 1fr 1fr !important; }
+          .hero-card-top { width: 140px !important; right: -6px !important; padding: 12px !important; }
+          .hero-card-bottom { width: 180px !important; left: -6px !important; padding: 10px 12px !important; }
         }
       `}</style>
     </section>

@@ -5,24 +5,24 @@ const ease = [0.16, 1, 0.3, 1] as const;
 
 const steps = [
   {
-    n: "1.",
+    n: "01",
     title: "Download the app",
-    body: "Available on iOS and Android. Setup takes 2 minutes — no account, no card.",
+    body: "Available on iOS and Android. 2-minute setup — no account, no card.",
   },
   {
-    n: "2.",
+    n: "02",
     title: "Tell us about you",
-    body: "Your dose, sleep window, food preferences, and goal. Six questions. The coach starts learning from question one.",
+    body: "Your dose, sleep, food preferences, and goal. Six questions. The coach starts learning from question one.",
   },
   {
-    n: "3.",
+    n: "03",
     title: "Get your personalized plan",
-    body: "Meals, daily 3 things, dose-bump prep, and the symptom forecast — all built around you, all on day one.",
+    body: "Meals, daily 3 things, dose-bump prep, and the symptom forecast — all built around you, on day one.",
   },
   {
-    n: "4.",
+    n: "04",
     title: "Track and watch the plateaus break",
-    body: "By week one, most people see their first 'how did it know' moment. By month three, they don't recognize their old anxiety around the scale.",
+    body: "By week one, most people see their first “how did it know” moment. By month three, the scale anxiety is gone.",
   },
 ];
 
@@ -31,24 +31,24 @@ export default function HowItWorksLong() {
     <section
       id="how-it-works"
       style={{
-        padding: "120px 32px",
+        padding: "96px 24px",
         background: "var(--surface-default)",
       }}
     >
-      <div style={{ maxWidth: 1180, margin: "0 auto" }}>
+      <div style={{ maxWidth: 720, margin: "0 auto" }}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.7, ease }}
-          style={{ textAlign: "center", maxWidth: 820, margin: "0 auto" }}
+          style={{ textAlign: "center", margin: "0 auto" }}
         >
           <h2
             style={{
               fontFamily: "var(--font-marketing)",
-              fontSize: "clamp(38px, 5.4vw, 60px)",
+              fontSize: "clamp(30px, 4.4vw, 48px)",
               fontWeight: 700,
-              lineHeight: 1.05,
+              lineHeight: 1.1,
               letterSpacing: "-0.025em",
               color: "var(--color-ink-900)",
               margin: 0,
@@ -60,10 +60,10 @@ export default function HowItWorksLong() {
           <p
             style={{
               fontFamily: "var(--font-marketing)",
-              fontSize: 19,
-              lineHeight: 1.55,
+              fontSize: 16,
+              lineHeight: 1.5,
               color: "var(--color-ink-700)",
-              marginTop: 18,
+              marginTop: 12,
               textWrap: "pretty",
             }}
           >
@@ -71,56 +71,63 @@ export default function HowItWorksLong() {
           </p>
         </motion.div>
 
-        <div
-          className="hiwl-list"
+        <ol
           style={{
-            marginTop: 56,
-            maxWidth: 820,
-            margin: "56px auto 0",
+            margin: "40px 0 0",
+            padding: 0,
+            listStyle: "none",
             display: "flex",
             flexDirection: "column",
-            gap: 16,
+            gap: 10,
           }}
         >
           {steps.map((s, i) => (
-            <motion.article
+            <motion.li
               key={s.n}
-              initial={{ opacity: 0, x: -24 }}
+              initial={{ opacity: 0, x: -16 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.7, delay: i * 0.1, ease }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.55, delay: i * 0.07, ease }}
               style={{
                 display: "grid",
-                gridTemplateColumns: "80px 1fr",
-                gap: 24,
-                alignItems: "start",
-                padding: "24px 28px",
-                borderRadius: 20,
+                gridTemplateColumns: "40px 1fr",
+                gap: 16,
+                alignItems: "flex-start",
+                padding: "16px 18px",
+                borderRadius: 16,
                 background: "var(--color-paper)",
                 border: "0.5px solid var(--border-default)",
               }}
             >
               <div
                 style={{
-                  fontFamily: "var(--font-marketing)",
-                  fontSize: "clamp(36px, 4.4vw, 52px)",
-                  fontWeight: 700,
+                  width: 36,
+                  height: 36,
+                  borderRadius: 999,
+                  background: "var(--primary-container)",
                   color: "var(--color-brand-blue)",
-                  letterSpacing: "-0.02em",
-                  lineHeight: 1,
+                  display: "inline-flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  fontFamily: "var(--font-marketing)",
+                  fontSize: 14,
+                  fontWeight: 700,
+                  letterSpacing: "-0.005em",
+                  flexShrink: 0,
                 }}
               >
                 {s.n}
               </div>
-              <div>
+              <div style={{ minWidth: 0 }}>
                 <h3
                   style={{
                     fontFamily: "var(--font-marketing)",
-                    fontSize: "clamp(20px, 2.4vw, 26px)",
+                    fontSize: 17,
                     fontWeight: 700,
                     color: "var(--color-ink-900)",
                     margin: 0,
-                    letterSpacing: "-0.015em",
+                    letterSpacing: "-0.012em",
+                    lineHeight: 1.3,
                     textWrap: "balance",
                   }}
                 >
@@ -129,19 +136,19 @@ export default function HowItWorksLong() {
                 <p
                   style={{
                     fontFamily: "var(--font-marketing)",
-                    fontSize: 16,
-                    lineHeight: 1.55,
+                    fontSize: 14.5,
+                    lineHeight: 1.5,
                     color: "var(--color-ink-700)",
-                    margin: "8px 0 0",
+                    margin: "4px 0 0",
                     textWrap: "pretty",
                   }}
                 >
                   {s.body}
                 </p>
               </div>
-            </motion.article>
+            </motion.li>
           ))}
-        </div>
+        </ol>
       </div>
     </section>
   );

@@ -13,6 +13,7 @@ import DayInLife from "@/components/DayInLife";
 import FAQ from "@/components/FAQ";
 import Download from "@/components/Download";
 import Footer from "@/components/Footer";
+import StickyCTA from "@/components/StickyCTA";
 
 export default function Page() {
   return (
@@ -32,6 +33,7 @@ export default function Page() {
       <FAQ />
       <Download />
       <Footer />
+      <StickyCTA />
     </main>
   );
 }

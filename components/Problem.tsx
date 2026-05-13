@@ -7,14 +7,23 @@ const problems = [
   {
     title: "Nobody warned you about week 3.",
     body: "The nausea, the food noise going quiet, the hair in the shower. Most people quit right before it gets better.",
+    img:
+      "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=900&h=700&fit=crop&crop=faces&q=80",
+    alt: "A woman taking a quiet moment to herself",
   },
   {
     title: "Generic apps just track. They don't coach.",
     body: "You log your weight, the app makes a chart. Cool — but what do you do tomorrow when the scale jumps after a bad night's sleep?",
+    img:
+      "https://images.unsplash.com/photo-1488508872907-592763824245?w=900&h=700&fit=crop&q=80",
+    alt: "Someone looking at a tracking app on their phone, unsure what to do",
   },
   {
     title: "Your doctor isn't there at 9pm on Sunday.",
     body: "The hardest moments don't happen in clinic hours. You shouldn't have to wait two weeks for an answer.",
+    img:
+      "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=900&h=700&fit=crop&crop=faces&q=80",
+    alt: "A man alone with his phone late at night, looking concerned",
   },
 ];
 
@@ -79,61 +88,84 @@ export default function Problem() {
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.7, delay: i * 0.1, ease }}
               style={{
-                padding: 28,
+                display: "flex",
+                flexDirection: "column",
                 borderRadius: 24,
                 background: "var(--color-paper)",
                 border: "0.5px solid var(--border-default)",
-                display: "flex",
-                flexDirection: "column",
-                gap: 12,
-                minHeight: 220,
+                overflow: "hidden",
+                minHeight: 360,
               }}
             >
+              {/* Person photo at the top of the card */}
               <div
                 style={{
-                  width: 44,
-                  height: 44,
-                  borderRadius: 12,
+                  position: "relative",
+                  aspectRatio: "4/3",
                   background: "var(--primary-container)",
-                  display: "inline-flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  marginBottom: 4,
+                  overflow: "hidden",
                 }}
-                aria-hidden
               >
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                  <circle cx="10" cy="10" r="8.5" stroke="var(--color-brand-blue)" strokeWidth="1.5" />
-                  <path d="M10 6V11" stroke="var(--color-brand-blue)" strokeWidth="1.8" strokeLinecap="round" />
-                  <circle cx="10" cy="14" r="0.9" fill="var(--color-brand-blue)" />
-                </svg>
+                <img
+                  src={p.img}
+                  alt={p.alt}
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    display: "block",
+                  }}
+                />
+                {/* subtle bottom fade so the card body feels connected */}
+                <div
+                  style={{
+                    position: "absolute",
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    height: "30%",
+                    background:
+                      "linear-gradient(to top, rgba(253,253,253,0.85), transparent)",
+                    pointerEvents: "none",
+                  }}
+                />
               </div>
-              <h3
+
+              <div
                 style={{
-                  fontFamily: "var(--font-marketing)",
-                  fontSize: 22,
-                  fontWeight: 700,
-                  lineHeight: 1.2,
-                  color: "var(--color-ink-900)",
-                  letterSpacing: "-0.015em",
-                  margin: 0,
-                  textWrap: "balance",
+                  padding: 26,
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: 10,
                 }}
               >
-                {p.title}
-              </h3>
-              <p
-                style={{
-                  fontFamily: "var(--font-marketing)",
-                  fontSize: 15.5,
-                  lineHeight: 1.55,
-                  color: "var(--color-ink-700)",
-                  margin: 0,
-                  textWrap: "pretty",
-                }}
-              >
-                {p.body}
-              </p>
+                <h3
+                  style={{
+                    fontFamily: "var(--font-marketing)",
+                    fontSize: 22,
+                    fontWeight: 700,
+                    lineHeight: 1.2,
+                    color: "var(--color-ink-900)",
+                    letterSpacing: "-0.015em",
+                    margin: 0,
+                    textWrap: "balance",
+                  }}
+                >
+                  {p.title}
+                </h3>
+                <p
+                  style={{
+                    fontFamily: "var(--font-marketing)",
+                    fontSize: 15.5,
+                    lineHeight: 1.55,
+                    color: "var(--color-ink-700)",
+                    margin: 0,
+                    textWrap: "pretty",
+                  }}
+                >
+                  {p.body}
+                </p>
+              </div>
             </motion.article>
           ))}
         </div>

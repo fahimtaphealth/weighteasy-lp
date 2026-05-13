@@ -14,7 +14,7 @@ const stories = [
     img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=240&h=240&fit=crop&crop=faces&q=80",
     metrics: [
       { label: "Weight before", value: "204 lb" },
-      { label: "Weight after 90 days", value: "182 lb" },
+      { label: "After 90 days", value: "182 lb" },
     ],
     tag: "Stayed on dose through week 3",
   },
@@ -27,7 +27,7 @@ const stories = [
     img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=240&h=240&fit=crop&crop=faces&q=80",
     metrics: [
       { label: "HbA1c before", value: "8.2%" },
-      { label: "HbA1c after 90 days", value: "6.4%" },
+      { label: "After 90 days", value: "6.4%" },
     ],
     tag: "Broke a 3-week plateau on day 9",
   },
@@ -40,7 +40,7 @@ const stories = [
     img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=240&h=240&fit=crop&crop=faces&q=80",
     metrics: [
       { label: "Weight lost", value: "18 lb" },
-      { label: "Lean mass retained", value: "94%" },
+      { label: "Lean mass kept", value: "94%" },
     ],
     tag: "Found her people in week 1",
   },
@@ -50,29 +50,39 @@ export default function Stories() {
   return (
     <section
       id="stories"
-      style={{ padding: "120px 32px", maxWidth: 1180, margin: "0 auto" }}
+      style={{ padding: "120px 0", overflow: "hidden" }}
     >
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.7, ease }}
-        style={{ maxWidth: 820, textAlign: "center", margin: "0 auto" }}
+        style={{
+          maxWidth: 820,
+          textAlign: "center",
+          margin: "0 auto",
+          padding: "0 32px",
+        }}
       >
         <Eyebrow>Stories</Eyebrow>
-        <SectionTitle>Thousands of people are living a better journey with WeightEasy</SectionTitle>
+        <SectionTitle>Thousands are living a better journey with WeightEasy</SectionTitle>
         <SectionLede>
           Real names, real numbers, real outcomes. No before-and-after photos required.
         </SectionLede>
       </motion.div>
 
+      {/* Horizontal scroll carousel */}
       <div
-        className="stories-grid"
+        className="stories-scroller"
         style={{
-          marginTop: 56,
-          display: "grid",
-          gridTemplateColumns: "repeat(3, 1fr)",
-          gap: 20,
+          marginTop: 48,
+          display: "flex",
+          gap: 16,
+          overflowX: "auto",
+          scrollSnapType: "x mandatory",
+          WebkitOverflowScrolling: "touch",
+          padding: "8px 32px 24px",
+          scrollbarWidth: "none",
         }}
       >
         {stories.map((s, i) => {
@@ -80,21 +90,25 @@ export default function Stories() {
           return (
             <motion.article
               key={s.name}
-              initial={{ opacity: 0, y: 32 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.7, delay: i * 0.12, ease }}
-              whileHover={{ y: -6 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.6, delay: i * 0.1, ease }}
               style={{
-                padding: 28,
+                flex: "0 0 auto",
+                width: "min(86vw, 360px)",
+                scrollSnapAlign: "center",
+                padding: 24,
                 borderRadius: 24,
                 background: dark ? "var(--color-ink-900)" : "var(--color-paper)",
                 color: dark ? "var(--color-paper)" : "var(--color-ink-900)",
                 border: dark ? "none" : "0.5px solid var(--border-default)",
+                boxShadow: dark
+                  ? "0 18px 40px -20px rgba(12,12,13,0.32)"
+                  : "0 14px 30px -22px rgba(12,12,13,0.08)",
                 display: "flex",
                 flexDirection: "column",
                 gap: 16,
-                minHeight: 460,
               }}
             >
               <div
@@ -129,7 +143,7 @@ export default function Stories() {
               <p
                 style={{
                   fontFamily: "var(--font-marketing)",
-                  fontSize: 17,
+                  fontSize: 16.5,
                   lineHeight: 1.5,
                   margin: 0,
                   fontWeight: 500,
@@ -140,7 +154,6 @@ export default function Stories() {
                 &ldquo;{s.quote}&rdquo;
               </p>
 
-              {/* metrics */}
               <div
                 style={{
                   display: "grid",
@@ -149,7 +162,6 @@ export default function Stories() {
                   padding: 12,
                   borderRadius: 14,
                   background: dark ? "rgba(255,255,255,0.06)" : "var(--surface-container-low)",
-                  marginTop: "auto",
                 }}
               >
                 {s.metrics.map((m) => (
@@ -191,8 +203,8 @@ export default function Stories() {
                   src={s.img}
                   alt=""
                   style={{
-                    width: 44,
-                    height: 44,
+                    width: 40,
+                    height: 40,
                     borderRadius: 999,
                     objectFit: "cover",
                   }}
@@ -224,7 +236,27 @@ export default function Stories() {
           );
         })}
       </div>
-      <style>{`@media (max-width: 1000px) { .stories-grid { grid-template-columns: 1fr !important; } }`}</style>
+
+      <div
+        style={{
+          textAlign: "center",
+          marginTop: 4,
+          padding: "0 32px",
+          fontFamily: "var(--font-marketing)",
+          fontSize: 12.5,
+          color: "var(--color-ink-500)",
+        }}
+      >
+        Swipe to read more →
+      </div>
+
+      <style>{`
+        .stories-scroller::-webkit-scrollbar { display: none; }
+        /* On larger screens, center the cards when they all fit */
+        @media (min-width: 1180px) {
+          .stories-scroller { justify-content: center; }
+        }
+      `}</style>
     </section>
   );
 }
