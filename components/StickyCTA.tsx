@@ -20,7 +20,10 @@ export default function StickyCTA() {
           left: 0,
           right: 0,
           bottom: 0,
+          width: "100%",
+          maxWidth: "100vw",
           zIndex: 50,
+          boxSizing: "border-box",
           padding: "12px 16px calc(12px + env(safe-area-inset-bottom, 0px))",
           background: "rgba(253,253,253,0.92)",
           backdropFilter: "saturate(180%) blur(14px)",
@@ -32,32 +35,39 @@ export default function StickyCTA() {
         <a
           href="#pricing"
           style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: 8,
-            height: 54,
+            display: "block",
+            width: "100%",
+            maxWidth: "100%",
+            boxSizing: "border-box",
+            height: 52,
+            lineHeight: "52px",
             borderRadius: 9999,
             background: "var(--primary-default)",
             color: "var(--primary-on)",
             fontFamily: "var(--font-product)",
             fontWeight: 700,
-            fontSize: 16,
+            fontSize: 15,
             letterSpacing: "-0.004em",
             textDecoration: "none",
-            width: "100%",
+            textAlign: "center",
+            whiteSpace: "nowrap",
+            overflow: "hidden",
+            textOverflow: "ellipsis",
           }}
         >
           Start for $9.99/month
         </a>
         <div
           style={{
-            marginTop: 8,
+            marginTop: 6,
             textAlign: "center",
             fontFamily: "var(--font-marketing)",
-            fontSize: 11.5,
+            fontSize: 11,
             color: "var(--color-ink-700)",
-            opacity: 0.8,
+            opacity: 0.85,
+            whiteSpace: "nowrap",
+            overflow: "hidden",
+            textOverflow: "ellipsis",
           }}
         >
           7-day free trial · Cancel anytime

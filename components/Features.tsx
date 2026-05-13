@@ -14,8 +14,9 @@ function VisualSymptom() {
       style={{
         position: "relative",
         margin: "8px auto 0",
-        width: 220,
-        height: 360,
+        width: "100%",
+        maxWidth: 220,
+        aspectRatio: "220 / 360",
         borderRadius: 36,
         background: "linear-gradient(180deg, #0F1733 0%, #1B2554 100%)",
         padding: 12,
@@ -180,7 +181,7 @@ const meals = [
 
 function VisualMeals() {
   return (
-    <div style={{ marginTop: 8, position: "relative" }}>
+    <div style={{ marginTop: 8, position: "relative", width: "100%", overflow: "hidden", borderRadius: 14 }}>
       <div
         className="meal-row"
         style={{
@@ -190,6 +191,7 @@ function VisualMeals() {
           padding: "8px 4px 12px",
           scrollSnapType: "x mandatory",
           scrollbarWidth: "none",
+          maxWidth: "100%",
         }}
       >
         {meals.map((m) => (
@@ -389,9 +391,10 @@ export default function Features() {
     <section
       id="features"
       style={{
-        padding: "120px 32px",
+        padding: "96px 20px",
         background:
           "linear-gradient(180deg, var(--primary-container) 0%, #F2F7FF 100%)",
+        overflowX: "hidden",
       }}
     >
       <div style={{ maxWidth: 1180, margin: "0 auto" }}>
@@ -466,7 +469,7 @@ export default function Features() {
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.7, delay: i * 0.1, ease }}
               style={{
-                padding: 28,
+                padding: 24,
                 borderRadius: 24,
                 background: "var(--color-paper)",
                 border: "0.5px solid var(--border-default)",
@@ -475,6 +478,9 @@ export default function Features() {
                 flexDirection: "column",
                 gap: 8,
                 textAlign: "center",
+                minWidth: 0,
+                overflow: "hidden",
+                boxSizing: "border-box",
               }}
             >
               <div
@@ -522,7 +528,7 @@ export default function Features() {
         </div>
       </div>
       <style>{`
-        @media (max-width: 920px) {
+        @media (max-width: 1080px) {
           .features-grid { grid-template-columns: 1fr !important; gap: 16px !important; }
         }
       `}</style>
