@@ -50,7 +50,12 @@ export default function Stories() {
   return (
     <section
       id="stories"
-      style={{ padding: "120px 0", overflow: "hidden" }}
+      style={{
+        padding: "96px 0",
+        overflow: "hidden",
+        background:
+          "linear-gradient(180deg, var(--primary-container) 0%, #F2F7FF 100%)",
+      }}
     >
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -75,14 +80,14 @@ export default function Stories() {
       <div
         className="stories-scroller"
         style={{
-          marginTop: 48,
+          marginTop: 40,
           display: "flex",
           gap: 14,
           overflowX: "auto",
           scrollSnapType: "x mandatory",
-          scrollPaddingInlineStart: 20,
+          scrollPaddingInlineStart: 16,
           WebkitOverflowScrolling: "touch",
-          padding: "8px 20px 24px",
+          padding: "12px 16px 28px",
           scrollbarWidth: "none",
         }}
       >
@@ -97,16 +102,16 @@ export default function Stories() {
               transition={{ duration: 0.6, delay: i * 0.1, ease }}
               style={{
                 flex: "0 0 auto",
-                width: "min(82vw, 340px)",
+                width: "min(76vw, 320px)",
                 scrollSnapAlign: "start",
-                padding: 24,
-                borderRadius: 24,
+                padding: 22,
+                borderRadius: 22,
                 background: dark ? "var(--color-ink-900)" : "var(--color-paper)",
                 color: dark ? "var(--color-paper)" : "var(--color-ink-900)",
-                border: dark ? "none" : "0.5px solid var(--border-default)",
+                border: dark ? "none" : "0.5px solid rgba(12,12,13,0.06)",
                 boxShadow: dark
-                  ? "0 18px 40px -20px rgba(12,12,13,0.32)"
-                  : "0 14px 30px -22px rgba(12,12,13,0.08)",
+                  ? "0 22px 44px -22px rgba(12,12,13,0.42)"
+                  : "0 16px 36px -18px rgba(12,12,13,0.14), 0 2px 8px -4px rgba(12,12,13,0.04)",
                 display: "flex",
                 flexDirection: "column",
                 gap: 16,
