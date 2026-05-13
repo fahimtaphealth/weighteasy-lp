@@ -1,14 +1,15 @@
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
-import CoachDifference from "@/components/CoachDifference";
-import Truths from "@/components/Truths";
-import Help from "@/components/Help";
-import Timeline from "@/components/Timeline";
-import Stats from "@/components/Stats";
-import CoachInAction from "@/components/CoachInAction";
-import TrackerVsCoach from "@/components/TrackerVsCoach";
+import Problem from "@/components/Problem";
+import BeforeAfter from "@/components/BeforeAfter";
 import Stories from "@/components/Stories";
+import HowItWorksShort from "@/components/HowItWorksShort";
+import Recognition from "@/components/Recognition";
+import Features from "@/components/Features";
 import Pricing from "@/components/Pricing";
+import HowItWorksLong from "@/components/HowItWorksLong";
+import ExpertEndorsement from "@/components/ExpertEndorsement";
+import DayInLife from "@/components/DayInLife";
 import FAQ from "@/components/FAQ";
 import Download from "@/components/Download";
 import Footer from "@/components/Footer";
@@ -18,15 +19,16 @@ export default function Page() {
     <main style={{ background: "var(--surface-default)" }}>
       <Nav />
       <Hero />
-      <CoachDifference />
-      <Truths />
-      <Help />
-      <Timeline />
-      <Stats />
-      <CoachInAction />
-      <TrackerVsCoach />
+      <Problem />
+      <BeforeAfter />
       <Stories />
+      <HowItWorksShort />
+      <Recognition />
+      <Features />
       <Pricing />
+      <HowItWorksLong />
+      <ExpertEndorsement />
+      <DayInLife />
       <FAQ />
       <Download />
       <Footer />
