@@ -318,39 +318,42 @@ export default function Hero() {
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(3, 1fr)",
-            gap: 14,
+            gap: 10,
             maxWidth: 540,
           }}
         >
           {heroStats.map((s) => (
             <div
               key={s.label}
+              className="hero-stat-card"
               style={{
-                padding: "14px 16px",
+                padding: "12px 14px",
                 background: "rgba(255,255,255,0.7)",
                 border: "0.5px solid var(--border-default)",
-                borderRadius: 16,
+                borderRadius: 14,
+                minWidth: 0,
               }}
             >
               <div
                 style={{
                   fontFamily: "var(--font-marketing)",
-                  fontSize: "clamp(20px, 2.4vw, 26px)",
+                  fontSize: "clamp(17px, 2.4vw, 26px)",
                   fontWeight: 700,
                   color: "var(--color-brand-blue)",
                   letterSpacing: "-0.02em",
-                  lineHeight: 1.1,
+                  lineHeight: 1.05,
                 }}
               >
                 {s.value}
               </div>
               <div
+                className="hero-stat-label"
                 style={{
                   fontFamily: "var(--font-marketing)",
-                  fontSize: 12,
+                  fontSize: 11.5,
                   color: "var(--color-ink-700)",
                   marginTop: 4,
-                  lineHeight: 1.3,
+                  lineHeight: 1.25,
                 }}
               >
                 {s.label}
@@ -387,9 +390,16 @@ export default function Hero() {
           .hero-inline-cta { display: none !important; }
         }
         @media (max-width: 520px) {
-          .hero-stats { grid-template-columns: 1fr 1fr !important; }
+          /* keep all 3 stat boxes in a single row, just tighter */
+          .hero-stats { gap: 8px !important; }
+          .hero-stat-card { padding: 10px 12px !important; }
+          .hero-stat-label { font-size: 11px !important; }
           .hero-card-top { width: 140px !important; right: -6px !important; padding: 12px !important; }
           .hero-card-bottom { width: 180px !important; left: -6px !important; padding: 10px 12px !important; }
+        }
+        @media (max-width: 380px) {
+          .hero-stats { gap: 6px !important; }
+          .hero-stat-card { padding: 8px 10px !important; }
         }
       `}</style>
     </section>
