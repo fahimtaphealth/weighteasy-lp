@@ -77,11 +77,12 @@ export default function Stories() {
         style={{
           marginTop: 48,
           display: "flex",
-          gap: 16,
+          gap: 14,
           overflowX: "auto",
           scrollSnapType: "x mandatory",
+          scrollPaddingInlineStart: 20,
           WebkitOverflowScrolling: "touch",
-          padding: "8px 32px 24px",
+          padding: "8px 20px 24px",
           scrollbarWidth: "none",
         }}
       >
@@ -96,8 +97,8 @@ export default function Stories() {
               transition={{ duration: 0.6, delay: i * 0.1, ease }}
               style={{
                 flex: "0 0 auto",
-                width: "min(86vw, 360px)",
-                scrollSnapAlign: "center",
+                width: "min(82vw, 340px)",
+                scrollSnapAlign: "start",
                 padding: 24,
                 borderRadius: 24,
                 background: dark ? "var(--color-ink-900)" : "var(--color-paper)",
