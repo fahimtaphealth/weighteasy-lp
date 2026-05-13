@@ -1,290 +1,386 @@
 "use client";
 import { motion } from "framer-motion";
 import type { ReactNode } from "react";
-import { Eyebrow } from "./primitives";
-import { PhoneFrame, StatusBar } from "./phones/PhoneFrame";
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
-/* ---------- Compact phone mockups, sized to peek out of feature cards ---------- */
+/* ─────────────────────────── Visuals ─────────────────────────── */
 
-function MiniSymptomPhone() {
+/* Card 1 — Symptom forecast phone */
+function VisualSymptom() {
+  const bars = [14, 22, 38, 62, 90, 54, 28];
   return (
-    <PhoneFrame width={208} height={420}>
-      <StatusBar />
-      <div style={{ padding: "4px 14px 14px" }}>
+    <div
+      style={{
+        position: "relative",
+        margin: "8px auto 0",
+        width: 220,
+        height: 360,
+        borderRadius: 36,
+        background: "linear-gradient(180deg, #0F1733 0%, #1B2554 100%)",
+        padding: 12,
+        boxShadow:
+          "0 24px 50px -22px rgba(12,12,13,0.28), 0 8px 18px -10px rgba(12,12,13,0.12)",
+      }}
+    >
+      {/* notch */}
+      <div
+        style={{
+          position: "absolute",
+          top: 18,
+          left: "50%",
+          transform: "translateX(-50%)",
+          width: 80,
+          height: 18,
+          borderRadius: 999,
+          background: "#000",
+          zIndex: 2,
+        }}
+      />
+      <div
+        style={{
+          width: "100%",
+          height: "100%",
+          borderRadius: 28,
+          background: "linear-gradient(170deg, #2C7BF2 0%, #5AAEFF 55%, #C7E1FF 110%)",
+          overflow: "hidden",
+          position: "relative",
+          padding: 18,
+        }}
+      >
         <div
           style={{
             fontFamily: "var(--font-product)",
             fontSize: 10.5,
             fontWeight: 700,
-            color: "var(--color-ink-500)",
-            letterSpacing: "0.06em",
+            letterSpacing: "0.08em",
+            color: "rgba(255,255,255,0.85)",
             textTransform: "uppercase",
+            marginTop: 24,
           }}
         >
           Forecast · This week
         </div>
         <div
           style={{
-            marginTop: 12,
-            padding: 14,
-            borderRadius: 14,
-            background: "var(--color-paper)",
-            border: "0.5px solid var(--border-default)",
+            fontFamily: "var(--font-marketing)",
+            fontSize: 24,
+            fontWeight: 800,
+            color: "#fff",
+            letterSpacing: "-0.02em",
+            lineHeight: 1.05,
+            marginTop: 4,
           }}
         >
-          <div
-            style={{
-              fontFamily: "var(--font-product)",
-              fontSize: 10,
-              fontWeight: 700,
-              color: "var(--color-brand-blue)",
-              letterSpacing: "0.08em",
-              textTransform: "uppercase",
-            }}
-          >
-            Nausea peak
-          </div>
-          <div
-            style={{
-              fontFamily: "var(--font-marketing)",
-              fontSize: 24,
-              fontWeight: 700,
-              color: "var(--color-ink-900)",
-              marginTop: 4,
-              letterSpacing: "-0.02em",
-              lineHeight: 1,
-            }}
-          >
-            Wed · 3:14 PM
-          </div>
-          <div style={{ marginTop: 12, display: "flex", gap: 4, alignItems: "flex-end", height: 44 }}>
-            {[10, 18, 32, 60, 48, 28, 14].map((h, i) => (
+          Wed · 3:14 PM
+        </div>
+        <div
+          style={{
+            fontFamily: "var(--font-product)",
+            fontSize: 12,
+            color: "rgba(255,255,255,0.85)",
+            marginTop: 3,
+          }}
+        >
+          Your nausea peak window
+        </div>
+
+        <div
+          style={{
+            marginTop: 18,
+            padding: 14,
+            borderRadius: 18,
+            background: "rgba(255,255,255,0.18)",
+            backdropFilter: "blur(12px)",
+            WebkitBackdropFilter: "blur(12px)",
+            border: "1px solid rgba(255,255,255,0.25)",
+          }}
+        >
+          <div style={{ display: "flex", alignItems: "flex-end", gap: 6, height: 72 }}>
+            {bars.map((h, i) => (
               <div
                 key={i}
                 style={{
                   flex: 1,
                   height: `${h}%`,
                   borderRadius: 4,
-                  background: i === 3 ? "var(--color-brand-blue)" : "var(--primary-container)",
+                  background: i === 4 ? "#FFD15C" : "rgba(255,255,255,0.55)",
+                  boxShadow: i === 4 ? "0 0 12px rgba(255,209,92,0.6)" : "none",
                 }}
               />
             ))}
           </div>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              marginTop: 8,
+              fontFamily: "var(--font-product)",
+              fontSize: 9.5,
+              color: "rgba(255,255,255,0.7)",
+              fontWeight: 600,
+            }}
+          >
+            {["M", "T", "W", "T", "F", "S", "S"].map((d) => (
+              <span key={d}>{d}</span>
+            ))}
+          </div>
         </div>
-        <div
-          style={{
-            marginTop: 10,
-            padding: 10,
-            borderRadius: 12,
-            background: "var(--color-ink-900)",
-            color: "var(--color-paper)",
-            fontFamily: "var(--font-marketing)",
-            fontSize: 11.5,
-            lineHeight: 1.45,
-          }}
-        >
-          Bone broth ready by 12. Reminder set.
-        </div>
-      </div>
-    </PhoneFrame>
-  );
-}
 
-function MiniMealPhone() {
-  return (
-    <PhoneFrame width={208} height={420}>
-      <StatusBar />
-      <div style={{ padding: "4px 14px 14px" }}>
-        <div
-          style={{
-            fontFamily: "var(--font-product)",
-            fontSize: 10.5,
-            fontWeight: 700,
-            color: "var(--color-ink-500)",
-            letterSpacing: "0.06em",
-            textTransform: "uppercase",
-          }}
-        >
-          Lunch · 12:30
-        </div>
         <div
           style={{
             marginTop: 12,
-            padding: 14,
-            borderRadius: 14,
-            background: "var(--color-paper)",
-            border: "0.5px solid var(--border-default)",
+            padding: "10px 12px",
+            borderRadius: 12,
+            background: "#0F1733",
+            color: "#fff",
+            fontFamily: "var(--font-marketing)",
+            fontSize: 12,
+            lineHeight: 1.4,
+            display: "flex",
+            alignItems: "center",
+            gap: 8,
           }}
         >
-          <div
-            style={{
-              fontFamily: "var(--font-product)",
-              fontSize: 10,
-              fontWeight: 700,
-              color: "var(--color-brand-blue)",
-              letterSpacing: "0.08em",
-              textTransform: "uppercase",
-            }}
-          >
-            Protein floor · 92g
-          </div>
-          <div
-            style={{
-              fontFamily: "var(--font-marketing)",
-              fontSize: 18,
-              fontWeight: 700,
-              color: "var(--color-ink-900)",
-              marginTop: 4,
-              letterSpacing: "-0.015em",
-              lineHeight: 1.2,
-            }}
-          >
-            Salmon bowl, brown rice
-          </div>
-          <div
-            style={{
-              fontFamily: "var(--font-product)",
-              fontSize: 11,
-              color: "var(--color-ink-500)",
-              marginTop: 4,
-            }}
-          >
-            480 kcal · 36g protein
-          </div>
+          <span style={{ fontSize: 14 }}>🥣</span>
+          Bone broth ready by 12. Reminder set.
         </div>
-        {["Greek yogurt + walnuts", "Chicken + roasted veg"].map((m) => (
+      </div>
+    </div>
+  );
+}
+
+/* Card 2 — Horizontal food carousel inside the card */
+const meals = [
+  {
+    img: "https://images.unsplash.com/photo-1488477181946-6428a0291777?w=320&h=320&fit=crop&q=80",
+    name: "Greek yogurt bowl",
+    kcal: 320,
+    protein: 28,
+  },
+  {
+    img: "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=320&h=320&fit=crop&q=80",
+    name: "Salmon + greens",
+    kcal: 480,
+    protein: 36,
+  },
+  {
+    img: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=320&h=320&fit=crop&q=80",
+    name: "Chicken & rice bowl",
+    kcal: 410,
+    protein: 34,
+  },
+  {
+    img: "https://images.unsplash.com/photo-1525351484163-7529414344d8?w=320&h=320&fit=crop&q=80",
+    name: "Veggie omelette",
+    kcal: 290,
+    protein: 24,
+  },
+];
+
+function VisualMeals() {
+  return (
+    <div style={{ marginTop: 8, position: "relative" }}>
+      <div
+        className="meal-row"
+        style={{
+          display: "flex",
+          gap: 10,
+          overflowX: "auto",
+          padding: "8px 4px 12px",
+          scrollSnapType: "x mandatory",
+          scrollbarWidth: "none",
+        }}
+      >
+        {meals.map((m) => (
           <div
-            key={m}
+            key={m.name}
             style={{
-              marginTop: 8,
-              padding: "8px 12px",
-              borderRadius: 12,
+              flex: "0 0 auto",
+              width: 156,
+              borderRadius: 14,
+              overflow: "hidden",
               background: "var(--surface-container-low)",
               border: "0.5px solid var(--border-default)",
-              fontFamily: "var(--font-product)",
-              fontSize: 11.5,
-              fontWeight: 500,
-              color: "var(--color-ink-800)",
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
+              scrollSnapAlign: "start",
             }}
           >
-            <span style={{ overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
-              {m}
-            </span>
-            <span
+            <div
               style={{
-                color: "var(--color-brand-blue)",
-                fontSize: 11,
-                fontWeight: 700,
+                width: "100%",
+                aspectRatio: "4/3",
+                background: `url(${m.img}) center/cover no-repeat, var(--primary-container)`,
               }}
-            >
-              ✓
-            </span>
+            />
+            <div style={{ padding: "10px 12px" }}>
+              <div
+                style={{
+                  fontFamily: "var(--font-product)",
+                  fontSize: 12.5,
+                  fontWeight: 700,
+                  color: "var(--color-ink-900)",
+                  letterSpacing: "-0.005em",
+                  overflow: "hidden",
+                  textOverflow: "ellipsis",
+                  whiteSpace: "nowrap",
+                }}
+              >
+                {m.name}
+              </div>
+              <div
+                style={{
+                  fontFamily: "var(--font-product)",
+                  fontSize: 11,
+                  color: "var(--color-ink-500)",
+                  marginTop: 2,
+                }}
+              >
+                {m.kcal} kcal · {m.protein}g protein
+              </div>
+            </div>
           </div>
         ))}
       </div>
-    </PhoneFrame>
-  );
-}
-
-function MiniChatPhone() {
-  return (
-    <PhoneFrame width={208} height={420}>
-      <StatusBar />
-      <div style={{ padding: "4px 14px 14px" }}>
-        <div
-          style={{
-            fontFamily: "var(--font-product)",
-            fontSize: 10.5,
-            fontWeight: 700,
-            color: "var(--color-ink-500)",
-            letterSpacing: "0.06em",
-            textTransform: "uppercase",
-          }}
-        >
-          9:42 PM · Sunday
-        </div>
-        <div style={{ marginTop: 14, display: "flex", flexDirection: "column", gap: 8 }}>
-          <div
-            style={{
-              alignSelf: "flex-end",
-              maxWidth: "82%",
-              padding: "8px 12px",
-              borderRadius: 14,
-              borderBottomRightRadius: 4,
-              background: "var(--color-brand-blue)",
-              color: "var(--color-paper)",
-              fontFamily: "var(--font-marketing)",
-              fontSize: 12.5,
-              lineHeight: 1.4,
-            }}
-          >
-            Scale jumped 1.2 lb. Should I worry?
-          </div>
-          <div
-            style={{
-              alignSelf: "flex-start",
-              maxWidth: "88%",
-              padding: "8px 12px",
-              borderRadius: 14,
-              borderBottomLeftRadius: 4,
-              background: "var(--surface-container-low)",
-              border: "0.5px solid var(--border-default)",
-              fontFamily: "var(--font-marketing)",
-              fontSize: 12.5,
-              lineHeight: 1.45,
-              color: "var(--color-ink-900)",
-            }}
-          >
-            Three nights under 6 hours of sleep. It&apos;s water. Sleep tonight is the goal.
-          </div>
-          <div
-            style={{
-              alignSelf: "flex-start",
-              padding: "6px 10px",
-              borderRadius: 12,
-              background: "var(--primary-container)",
-              border: "0.5px solid var(--border-default)",
-              fontFamily: "var(--font-product)",
-              fontSize: 10.5,
-              fontWeight: 700,
-              color: "var(--color-brand-blue)",
-            }}
-          >
-            ✓ Sleep reminder set
-          </div>
-        </div>
+      {/* fade on right edge to suggest scroll */}
+      <div
+        style={{
+          position: "absolute",
+          top: 0,
+          right: 0,
+          bottom: 12,
+          width: 32,
+          pointerEvents: "none",
+          background: "linear-gradient(to left, var(--color-paper), transparent)",
+        }}
+      />
+      <div
+        style={{
+          display: "inline-block",
+          marginTop: 4,
+          padding: "5px 10px",
+          borderRadius: 999,
+          background: "var(--primary-container)",
+          color: "var(--color-brand-blue)",
+          fontFamily: "var(--font-marketing)",
+          fontSize: 11.5,
+          fontWeight: 700,
+          letterSpacing: "0.04em",
+        }}
+      >
+        ✓ Built around your dose
       </div>
-    </PhoneFrame>
+      <style>{`.meal-row::-webkit-scrollbar { display: none; }`}</style>
+    </div>
   );
 }
 
-/* ---------- Section ---------- */
+/* Card 3 — Chat preview */
+function VisualChat() {
+  return (
+    <div
+      style={{
+        marginTop: 8,
+        padding: 16,
+        borderRadius: 20,
+        background: "linear-gradient(160deg, #EEF4FF 0%, #F8FBFF 100%)",
+        border: "0.5px solid var(--border-default)",
+        display: "flex",
+        flexDirection: "column",
+        gap: 10,
+      }}
+    >
+      <div
+        style={{
+          fontFamily: "var(--font-product)",
+          fontSize: 10.5,
+          fontWeight: 700,
+          color: "var(--color-ink-500)",
+          letterSpacing: "0.08em",
+          textTransform: "uppercase",
+          textAlign: "center",
+        }}
+      >
+        Sunday · 9:42 PM
+      </div>
 
-type Card = { eyebrow: string; title: string; body: string; phone: ReactNode };
+      <div
+        style={{
+          alignSelf: "flex-end",
+          maxWidth: "85%",
+          padding: "10px 14px",
+          borderRadius: 18,
+          borderBottomRightRadius: 6,
+          background: "var(--color-brand-blue)",
+          color: "var(--color-paper)",
+          fontFamily: "var(--font-marketing)",
+          fontSize: 13,
+          lineHeight: 1.4,
+          boxShadow: "0 6px 14px -8px rgba(48,119,235,0.4)",
+        }}
+      >
+        Scale jumped 1.2 lb today. Should I worry?
+      </div>
+
+      <div
+        style={{
+          alignSelf: "flex-start",
+          maxWidth: "92%",
+          padding: "12px 14px",
+          borderRadius: 18,
+          borderBottomLeftRadius: 6,
+          background: "var(--color-paper)",
+          border: "0.5px solid var(--border-default)",
+          fontFamily: "var(--font-marketing)",
+          fontSize: 13,
+          lineHeight: 1.5,
+          color: "var(--color-ink-900)",
+          boxShadow: "0 6px 14px -10px rgba(12,12,13,0.08)",
+        }}
+      >
+        Three nights under 6 hrs of sleep. It&apos;s water, not weight. Sleep tonight
+        is the actual goal.
+      </div>
+
+      <div
+        style={{
+          alignSelf: "flex-start",
+          padding: "6px 12px",
+          borderRadius: 999,
+          background: "var(--primary-container)",
+          fontFamily: "var(--font-product)",
+          fontSize: 11.5,
+          fontWeight: 700,
+          color: "var(--color-brand-blue)",
+        }}
+      >
+        ✓ Sleep reminder set for 10:30
+      </div>
+    </div>
+  );
+}
+
+/* ─────────────────────────── Section ─────────────────────────── */
+
+type Card = { eyebrow: string; title: string; body: string; visual: ReactNode };
 
 const cards: Card[] = [
   {
     eyebrow: "Symptom tracking",
-    title: "We learn your nausea pattern.",
+    title: "Forecast your nausea, plan around it.",
     body: "By your third shot we know when it peaks — within ±24 hours.",
-    phone: <MiniSymptomPhone />,
+    visual: <VisualSymptom />,
   },
   {
     eyebrow: "Meal plans",
-    title: "Food you'll actually eat.",
-    body: "Built around what stays down on this dose, and your protein floor.",
-    phone: <MiniMealPhone />,
+    title: "Food you'll actually want to eat.",
+    body: "Real portions, your protein floor, what your body keeps down on this dose.",
+    visual: <VisualMeals />,
   },
   {
-    eyebrow: "24x7 AI coach",
-    title: "An expert in your pocket.",
-    body: "Answers grounded in your data, at 9pm on Sunday — not next week.",
-    phone: <MiniChatPhone />,
+    eyebrow: "AI coach",
+    title: "An expert in your pocket, 24/7.",
+    body: "Answers grounded in your data — at 9pm on Sunday, not two weeks from now.",
+    visual: <VisualChat />,
   },
 ];
 
@@ -294,7 +390,8 @@ export default function Features() {
       id="features"
       style={{
         padding: "120px 32px",
-        background: "var(--surface-default)",
+        background:
+          "linear-gradient(180deg, var(--primary-container) 0%, #F2F7FF 100%)",
       }}
     >
       <div style={{ maxWidth: 1180, margin: "0 auto" }}>
@@ -305,11 +402,28 @@ export default function Features() {
           transition={{ duration: 0.7, ease }}
           style={{ textAlign: "center", maxWidth: 820, margin: "0 auto" }}
         >
-          <Eyebrow>Features</Eyebrow>
+          <div
+            style={{
+              display: "inline-block",
+              padding: "6px 14px",
+              borderRadius: 999,
+              background: "rgba(255,255,255,0.7)",
+              border: "0.5px solid var(--border-default)",
+              fontFamily: "var(--font-marketing)",
+              fontSize: 12,
+              fontWeight: 700,
+              letterSpacing: "0.1em",
+              textTransform: "uppercase",
+              color: "var(--color-brand-blue)",
+              marginBottom: 18,
+            }}
+          >
+            Features
+          </div>
           <h2
             style={{
               fontFamily: "var(--font-marketing)",
-              fontSize: "clamp(38px, 5.4vw, 60px)",
+              fontSize: "clamp(32px, 5vw, 56px)",
               fontWeight: 700,
               lineHeight: 1.05,
               letterSpacing: "-0.025em",
@@ -323,10 +437,10 @@ export default function Features() {
           <p
             style={{
               fontFamily: "var(--font-marketing)",
-              fontSize: 19,
+              fontSize: 17,
               lineHeight: 1.55,
               color: "var(--color-ink-700)",
-              marginTop: 18,
+              marginTop: 16,
               textWrap: "pretty",
             }}
           >
@@ -337,31 +451,30 @@ export default function Features() {
         <div
           className="features-grid"
           style={{
-            marginTop: 56,
+            marginTop: 48,
             display: "grid",
             gridTemplateColumns: "repeat(3, 1fr)",
             gap: 20,
+            alignItems: "stretch",
           }}
         >
           {cards.map((c, i) => (
             <motion.article
               key={c.title}
-              initial={{ opacity: 0, y: 28 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
+              viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.7, delay: i * 0.1, ease }}
               style={{
-                padding: "32px 28px 0",
+                padding: 28,
                 borderRadius: 24,
-                background: "var(--primary-container)",
+                background: "var(--color-paper)",
                 border: "0.5px solid var(--border-default)",
-                overflow: "hidden",
+                boxShadow: "0 18px 40px -28px rgba(12,12,13,0.18)",
                 display: "flex",
                 flexDirection: "column",
-                alignItems: "center",
+                gap: 8,
                 textAlign: "center",
-                gap: 12,
-                minHeight: 460,
               }}
             >
               <div
@@ -396,36 +509,21 @@ export default function Features() {
                   fontSize: 14.5,
                   lineHeight: 1.5,
                   color: "var(--color-ink-700)",
-                  margin: 0,
+                  margin: "2px auto 0",
                   textWrap: "pretty",
-                  maxWidth: 280,
+                  maxWidth: 300,
                 }}
               >
                 {c.body}
               </p>
-
-              {/* Phone mockup — clipped by the card's overflow:hidden */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.9, delay: 0.2 + i * 0.1, ease }}
-                style={{
-                  marginTop: "auto",
-                  marginBottom: -80,
-                  display: "flex",
-                  justifyContent: "center",
-                }}
-              >
-                {c.phone}
-              </motion.div>
+              <div style={{ marginTop: 16 }}>{c.visual}</div>
             </motion.article>
           ))}
         </div>
       </div>
       <style>{`
         @media (max-width: 920px) {
-          .features-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
+          .features-grid { grid-template-columns: 1fr !important; gap: 16px !important; }
         }
       `}</style>
     </section>
